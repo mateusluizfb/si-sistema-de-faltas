@@ -16,7 +16,8 @@ public class Presenca {
     private Long id;
     private Date dataCadastro;
     private TipoPresenca tipoPresenca;
-    private Usuario usuario;
+    private Membro membro;
+    private Turma turma;
 
     @Id
     @GeneratedValue(generator = "Presenca.id", strategy = GenerationType.SEQUENCE)
@@ -50,13 +51,23 @@ public class Presenca {
         this.tipoPresenca = tipoPresenca;
     }
 
-    @JoinColumn(name = "USUARIO_ID")
+    @JoinColumn(name = "MEMBRO_ID")
     @ManyToOne
-    public Usuario getUsuario() {
-        return usuario;
+    public Membro getMembro() {
+        return membro;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setMembro(Membro membro) {
+        this.membro = membro;
+    }
+
+    @JoinColumn(name = "TURMA_ID")
+    @ManyToOne
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 }

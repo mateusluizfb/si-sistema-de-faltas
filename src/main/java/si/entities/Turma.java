@@ -13,8 +13,8 @@ public class Turma {
 
     private Long id;
     private String nome;
-    private List<Usuario> usuarios;
-    private Usuario responsavel;
+    private List<Membro> membros;
+    private Membro responsavel;
 
     @Id
     @GeneratedValue
@@ -38,21 +38,21 @@ public class Turma {
     }
 
     @ManyToMany(mappedBy = "turmas")
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    public List<Membro> getMembros() {
+        return membros;
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public void setMembros(List<Membro> membros) {
+        this.membros = membros;
     }
 
     @JoinColumn(name = "REPONSAVEL_ID")
     @ManyToOne
-    public Usuario getResponsavel() {
+    public Membro getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(Usuario responsavel) {
+    public void setResponsavel(Membro responsavel) {
         this.responsavel = responsavel;
     }
 }

@@ -9,8 +9,8 @@ import java.util.List;
  * Created by mateus on 29/09/16.
  */
 @Entity
-@Table(name = "USUARIO")
-public class Usuario {
+@Table(name = "MEMBRO")
+public class Membro {
 
     private Long id;
     private String nome;
@@ -19,8 +19,8 @@ public class Usuario {
     private List<Turma> turmas;
 
     @Id
-    @GeneratedValue(generator = "Usuario.id", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "Usuario.id", sequenceName = "USUARIO_SEQUENCE", allocationSize = 1)
+    @GeneratedValue(generator = "Membro.id", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "Membro.id", sequenceName = "MEMBRO_SEQUENCE", allocationSize = 1)
     @Column(name = "ID")
     public Long getId() {
         return id;
@@ -49,7 +49,7 @@ public class Usuario {
         this.tipoPerfil = tipoPerfil;
     }
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "membro")
     public List<Presenca> getPresencas() {
         return presencas;
     }
@@ -59,7 +59,7 @@ public class Usuario {
     }
 
     @ManyToMany
-    @JoinTable(name = "USUARIO_HAS_TURMAS", joinColumns = {@JoinColumn(name = "USUARIO_ID")}, inverseJoinColumns = {@JoinColumn(name = "TURMA_ID")})
+    @JoinTable(name = "MEMBRO_HAS_TURMAS", joinColumns = {@JoinColumn(name = "MEMBRO_ID")}, inverseJoinColumns = {@JoinColumn(name = "TURMA_ID")})
     public List<Turma> getTurmas() {
         return turmas;
     }
