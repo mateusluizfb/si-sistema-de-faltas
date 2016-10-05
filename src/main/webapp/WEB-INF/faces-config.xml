@@ -12,5 +12,15 @@
         <phase-listener>
             org.springframework.web.jsf.DelegatingPhaseListenerMulticaster</phase-listener>
     </lifecycle>
+    
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>listagem_turmas</from-outcome>
+            <to-view-id>/app/views/turmas/listagem_turmas.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>

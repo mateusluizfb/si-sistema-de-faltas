@@ -1,0 +1,15 @@
+.navbar {
+    background-color: rgba(103, 168, 86, 0.73);
+}
+
+.navbar a {
+    color: black;
+}
+
+.navbar ul {
+    color: black;
+}
+
+.btn-group {
+    margin-left: 25%;
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+    <title>SRP - Criar</title>
+</head>
+<body>
+
+<ui:composition template="../template/header.xhtml">
+    <link rel="stylesheet" href="../../stylesheet/css/criar_turma.css"/>
+
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Criar Turma</h4>
+            </div>
+            <div class="panel-body">
+
+                <h:form>
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <h:inputText styleClass="form-control input-default" value="#{incluirTurmaPage.turma.nome}"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Reponsável</label>
+                        <h:selectOneMenu styleClass="form-control input-default" value="#{incluirTurmaPage.turma.responsavel}">
+                            <f:selectItem ></f:selectItem>
+                            <f:selectItems value="#{incluirTurmaPage.responsaveis}" var="r" itemLabel="#{r.nome}" itemValue="#{r.id}"/>
+
+                        </h:selectOneMenu>
+                    </div>
+                </h:form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</ui:composition>
+
+</body>
+</html>

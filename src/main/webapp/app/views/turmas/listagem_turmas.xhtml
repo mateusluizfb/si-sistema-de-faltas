@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+    <title>SRP - Turmas</title>
+</head>
+<body>
+
+<ui:composition template="../template/header.xhtml">
+
+    <div class="container">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4>Turmas</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Responsável</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{listarTurmaPage.turmas}" var="t">
+                            <tr>
+                                <td>#{t.id}</td>
+                                <td>#{t.nome}</td>
+                                <td>#{t.responsavel.nome}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <h:link styleClass="btn btn-info" >
+                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                        </h:link>
+                                        <h:link styleClass="btn btn-danger" >
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </h:link>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h:link styleClass="btn btn-primary" value="">
+                <span class="glyphicon glyphicon-plus"/>
+            </h:link>
+        </div>
+    </div>
+
+
+</ui:composition>
+
+</body>
+</html>
