@@ -21,6 +21,13 @@
             <to-view-id>/app/views/turmas/listagem_turmas.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+
+        <navigation-case>
+            <from-outcome>criar_turma</from-outcome>
+            <to-view-id>/app/views/turmas/criar_turma.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
     </navigation-rule>
 
 </faces-config>

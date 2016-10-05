@@ -10,6 +10,6 @@
     color: black;
 }
 
-.btn-group {
-    margin-left: 25%;
+.navbar-brand {
+    font-weight: bolder;
 }

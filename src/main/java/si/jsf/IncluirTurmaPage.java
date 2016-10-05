@@ -27,6 +27,10 @@ public class IncluirTurmaPage {
         return mr.findAllByTipoPerfilIn(TipoPerfil.PF);
     }
 
+    public List<Membro> getAlunos(){
+        return mr.findAllByTipoPerfilIn(TipoPerfil.AL);
+    }
+
     public Turma getTurma() {
         if(turma == null){
             turma = new Turma();
