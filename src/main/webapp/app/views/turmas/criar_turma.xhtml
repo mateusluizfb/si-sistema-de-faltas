@@ -30,26 +30,22 @@
                     <div class="form-group">
                         <label>Reponsável</label>
                         <h:selectOneMenu styleClass="form-control input-default"
-                                         value="#{incluirTurmaPage.turma.responsavel}">
-                            <f:selectItem></f:selectItem>
+                                         value="#{incluirTurmaPage.idResponsavel}">
+                            <f:selectItem />
                             <f:selectItems value="#{incluirTurmaPage.responsaveis}" var="r" itemLabel="#{r.nome}"
                                            itemValue="#{r.id}"/>
                         </h:selectOneMenu>
                     </div>
                     <div class="form-group">
                         <label>Alunos</label>
-
                         <h:selectManyCheckbox value="#{incluirTurmaPage.membros}" layout="pageDirection">
-
-                            <f:selectItems value="#{incluirTurmaPage.alunos}" itemLabel="#{a.nome}" var="a"/>
-
+                            <f:selectItems value="#{incluirTurmaPage.alunos}" itemLabel="#{a.nome}" var="a" itemValue="#{a.id}"/>
                         </h:selectManyCheckbox>
-
                     </div>
 
                     <div class="form-group">
                         <div style="margin-left: 25%;">
-                            <h:commandLink styleClass="btn btn-success" action="#{incluirTurmaPage.mostraLista(true)}">
+                            <h:commandLink styleClass="btn btn-success" action="#{incluirTurmaPage.save()}">
                                 <span class="glyphicon glyphicon-ok"/>
                             </h:commandLink>
                             &#160;
@@ -60,6 +56,8 @@
                     </div>
 
                 </h:form>
+
+                <h:messages />
 
             </div>
 
