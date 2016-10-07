@@ -29,37 +29,27 @@
                     </div>
                     <div class="form-group">
                         <label>Reponsável</label>
-                        <h:selectOneMenu styleClass="form-control input-default" value="#{incluirTurmaPage.turma.responsavel}">
-                            <f:selectItem ></f:selectItem>
-                            <f:selectItems value="#{incluirTurmaPage.responsaveis}" var="r" itemLabel="#{r.nome}" itemValue="#{r.id}"/>
+                        <h:selectOneMenu styleClass="form-control input-default"
+                                         value="#{incluirTurmaPage.turma.responsavel}">
+                            <f:selectItem></f:selectItem>
+                            <f:selectItems value="#{incluirTurmaPage.responsaveis}" var="r" itemLabel="#{r.nome}"
+                                           itemValue="#{r.id}"/>
                         </h:selectOneMenu>
                     </div>
                     <div class="form-group">
                         <label>Alunos</label>
-                        <table id="tabela-alunos" class="table table-bordered ">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nome</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <ui:repeat value="#{incluirTurmaPage.alunos}" var="a">
-                                    <tr>
-                                        <td>
-                                            <h:selectBooleanCheckbox />
-                                        </td>
-                                        <td>#{a.nome}</td>
-                                    </tr>
-                                </ui:repeat>
-                            </tbody>
 
-                        </table>
+                        <h:selectManyCheckbox value="#{incluirTurmaPage.membros}" layout="pageDirection">
+
+                            <f:selectItems value="#{incluirTurmaPage.alunos}" itemLabel="#{a.nome}" var="a"/>
+
+                        </h:selectManyCheckbox>
+
                     </div>
 
                     <div class="form-group">
                         <div style="margin-left: 25%;">
-                            <h:commandLink styleClass="btn btn-success" >
+                            <h:commandLink styleClass="btn btn-success" action="#{incluirTurmaPage.mostraLista(true)}">
                                 <span class="glyphicon glyphicon-ok"/>
                             </h:commandLink>
                             &#160;

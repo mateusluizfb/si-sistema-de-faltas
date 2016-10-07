@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 import si.entities.Membro;
+import si.entities.Presenca;
 import si.entities.Turma;
 import si.enums.TipoPerfil;
 import si.repositories.MembroRepository;
@@ -22,6 +23,7 @@ public class IncluirTurmaPage {
     private MembroRepository mr;
 
     private Turma turma;
+    List<Membro> membros;
 
     public List<Membro> getResponsaveis(){
         return mr.findAllByTipoPerfilIn(TipoPerfil.PF);
@@ -40,5 +42,17 @@ public class IncluirTurmaPage {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
+    }
+
+    public List<Membro> getMembros() {
+        return membros;
+    }
+
+    public void setMembros(List<Membro> membros) {
+        this.membros = membros;
+    }
+
+    public void mostraLista(boolean oi){
+        System.out.println(membros);
     }
 }
