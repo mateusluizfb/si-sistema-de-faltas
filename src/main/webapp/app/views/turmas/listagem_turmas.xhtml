@@ -23,33 +23,34 @@
             <div class="panel-body">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Responsável</th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Responsável</th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <h:form>
-                            <ui:repeat value="#{listarTurmaPage.turmas}" var="t">
-                                <tr>
-                                    <td>#{t.id}</td>
-                                    <td>#{t.nome}</td>
-                                    <td>#{t.responsavel.nome}</td>
-                                    <td>
-                                        <div class="btn-group" style="margin-left: 25%;">
-                                            <h:link styleClass="btn btn-info" >
-                                                <span class="glyphicon glyphicon-info-sign"></span>
-                                            </h:link>
-                                            <h:commandLink styleClass="btn btn-danger" action="#{listarTurmaPage.delete(t.id)}">
-                                                <span class="glyphicon glyphicon-remove"></span>
-                                            </h:commandLink>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </ui:repeat>
-                        </h:form>
+                    <h:form>
+                        <ui:repeat value="#{listarTurmaPage.turmas}" var="t">
+                            <tr>
+                                <td>#{t.id}</td>
+                                <td>#{t.nome}</td>
+                                <td>#{t.responsavel.nome}</td>
+                                <td>
+                                    <div class="btn-group" style="margin-left: 25%;">
+                                        <h:link styleClass="btn btn-info">
+                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                        </h:link>
+                                        <h:commandLink styleClass="btn btn-danger"
+                                                       action="#{listarTurmaPage.delete(t.id)}">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </h:commandLink>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ui:repeat>
+                    </h:form>
                     </tbody>
                 </table>
             </div>
@@ -61,7 +62,7 @@
         </div>
     </div>
     <ui:define name="scripts">
-        <script type="application/javascript" src="../../stylesheet/js/turmas/turma.js" />
+        <script type="application/javascript" src="../../stylesheet/js/turmas/turma.js"/>
     </ui:define>
 </ui:composition>
 

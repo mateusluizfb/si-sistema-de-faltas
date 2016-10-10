@@ -7,10 +7,13 @@ public enum TipoPerfil {
 
     AL("Aluno"), PF("Professor");
 
-    private String tipoPerfil;
+    public String tipoPerfil;
 
     TipoPerfil(String tipoPerfil){
         this.tipoPerfil = tipoPerfil;
     }
 
+    public String getTipoPerfil() {
+        return tipoPerfil;
+    }
 }

@@ -34,6 +34,12 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>incluir_membro</from-outcome>
+            <to-view-id>/app/views/membros/incluir_membro.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
     </navigation-rule>
 
 </faces-config>
