@@ -22,4 +22,8 @@ public class ListarTurmaPage {
     public List<Turma> getTurmas(){
         return tr.findAll();
     }
+
+    public void delete(Long id){
+        tr.delete(id);
+    }
 }

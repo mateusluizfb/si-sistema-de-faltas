@@ -31,23 +31,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <ui:repeat value="#{listarTurmaPage.turmas}" var="t">
-                            <tr>
-                                <td>#{t.id}</td>
-                                <td>#{t.nome}</td>
-                                <td>#{t.responsavel.nome}</td>
-                                <td>
-                                    <div class="btn-group" style="margin-left: 25%;">
-                                        <h:link styleClass="btn btn-info" >
-                                            <span class="glyphicon glyphicon-info-sign"></span>
-                                        </h:link>
-                                        <h:link styleClass="btn btn-danger" >
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                        </h:link>
-                                    </div>
-                                </td>
-                            </tr>
-                        </ui:repeat>
+                        <h:form>
+                            <ui:repeat value="#{listarTurmaPage.turmas}" var="t">
+                                <tr>
+                                    <td>#{t.id}</td>
+                                    <td>#{t.nome}</td>
+                                    <td>#{t.responsavel.nome}</td>
+                                    <td>
+                                        <div class="btn-group" style="margin-left: 25%;">
+                                            <h:link styleClass="btn btn-info" >
+                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                            </h:link>
+                                            <h:commandLink styleClass="btn btn-danger" action="#{listarTurmaPage.delete(t.id)}">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </h:commandLink>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ui:repeat>
+                        </h:form>
                     </tbody>
                 </table>
             </div>
@@ -58,8 +60,9 @@
             </h:link>
         </div>
     </div>
-
-
+    <ui:define name="scripts">
+        <script type="application/javascript" src="../../stylesheet/js/turmas/turma.js" />
+    </ui:define>
 </ui:composition>
 
 </body>

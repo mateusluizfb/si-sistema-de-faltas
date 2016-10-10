@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../stylesheet/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../stylesheet/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="../../stylesheet/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="../../stylesheet/sweetalert-master/dist/sweetalert.css" />
 </head>
 <body>
 
@@ -20,7 +21,7 @@
     <a href="#" class="navbar-brand" style="color: black">SRP</a>
     <ul class="nav navbar-nav">
         <li><h:link outcome="listagem_turmas">Turmas</h:link></li>
-        <li><a href="#"> Membros </a></li>
+        <li><h:link outcome="listagem_membros"> Membros </h:link></li>
     </ul>
 
 </div>
@@ -29,5 +30,9 @@
 
 <script type="application/javascript" src="../../stylesheet/js/jquery-2.2.4.min.js" />
 <script type="application/javascript" src="../../stylesheet/bootstrap-3.3.7-dist/js/bootstrap.js" />
+<script type="application/javascript" src="../../stylesheet/sweetalert-master/dist/sweetalert.min.js" />
+
+<ui:insert name="scripts">
+</ui:insert>
 </body>
 </html>

@@ -28,6 +28,12 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>listagem_membros</from-outcome>
+            <to-view-id>/app/views/membros/listagem_membros.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
     </navigation-rule>
 
 </faces-config>
