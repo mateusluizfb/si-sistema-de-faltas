@@ -49,18 +49,15 @@ public class IncluirTurmaPage {
     public String save(){
         List<Membro> list = new ArrayList<>();
         saveAlunos(list);
-        Membro responsavel = mr.findOne(idResponsavel);
-        turma.setResponsavel(responsavel);
         turma.setMembros(list);
+        turma.setResponsavel(mr.findOne(idResponsavel));
         tr.save(turma);
         return "listagem_turmas";
     }
 
     private void saveAlunos(List list){
-        for (Long m:
-             membros) {
-            System.out.println(mr.findOne(m).getNome());
-            list.add(mr.findOne(m));
+        for (Long mID: membros) {
+            list.add(mr.findOne(mID));
         }
     }
 

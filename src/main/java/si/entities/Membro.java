@@ -3,6 +3,7 @@ package si.entities;
 import si.enums.TipoPerfil;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class Membro {
     private String nome;
     private TipoPerfil tipoPerfil;
     private List<Presenca> presencas;
-    private List<Turma> turmas;
+    private List<Turma> turmas = new ArrayList<>();
 
     @Id
     @GeneratedValue(generator = "Membro.id", strategy = GenerationType.SEQUENCE)
@@ -58,8 +59,7 @@ public class Membro {
         this.presencas = presencas;
     }
 
-    @ManyToMany
-    @JoinTable(name = "MEMBRO_HAS_TURMAS", joinColumns = {@JoinColumn(name = "MEMBRO_ID")}, inverseJoinColumns = {@JoinColumn(name = "TURMA_ID")})
+    @ManyToMany(mappedBy = "membros")
     public List<Turma> getTurmas() {
         return turmas;
     }

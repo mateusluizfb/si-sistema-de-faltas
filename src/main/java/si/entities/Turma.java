@@ -1,6 +1,7 @@
 package si.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class Turma {
 
     private Long id;
     private String nome;
-    private List<Membro> membros;
+    private List<Membro> membros = new ArrayList<>();
     private Membro responsavel;
 
     @Id
@@ -37,7 +38,8 @@ public class Turma {
         this.nome = nome;
     }
 
-    @ManyToMany(mappedBy = "turmas")
+    @ManyToMany
+    @JoinTable(name = "TURMA_HAS_MEMBROS", joinColumns = {@JoinColumn(name = "TURMA_ID")}, inverseJoinColumns = {@JoinColumn(name = "MEMBRO_ID")})
     public List<Membro> getMembros() {
         return membros;
     }
