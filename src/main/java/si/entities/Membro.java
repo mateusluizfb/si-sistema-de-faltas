@@ -50,7 +50,7 @@ public class Membro {
         this.tipoPerfil = tipoPerfil;
     }
 
-    @OneToMany(mappedBy = "membro")
+    @OneToMany(mappedBy = "membro", fetch = FetchType.EAGER)
     public List<Presenca> getPresencas() {
         return presencas;
     }
@@ -59,7 +59,7 @@ public class Membro {
         this.presencas = presencas;
     }
 
-    @ManyToMany(mappedBy = "membros")
+    @ManyToMany(mappedBy = "membros", fetch = FetchType.EAGER)
     public List<Turma> getTurmas() {
         return turmas;
     }
