@@ -16,10 +16,11 @@ public class Turma {
     private String nome;
     private List<Membro> membros = new ArrayList<>();
     private Membro responsavel;
+    private List<Presenca> presencas; // seria melhor um MAP
 
     @Id
-    @GeneratedValue
-    @SequenceGenerator(name = "Turma.id", sequenceName = "SEQUENCE_TURMA", allocationSize = 1)
+    @GeneratedValue(generator = "Turma.id", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "Turma.id", sequenceName = "TURMA_SEQUENCE", allocationSize = 1)
     @Column(name = "ID")
     public Long getId() {
         return id;
@@ -56,5 +57,14 @@ public class Turma {
 
     public void setResponsavel(Membro responsavel) {
         this.responsavel = responsavel;
+    }
+
+    @OneToMany(mappedBy = "turma")
+    public List<Presenca> getPresencas() {
+        return presencas;
+    }
+
+    public void setPresencas(List<Presenca> presencas) {
+        this.presencas = presencas;
     }
 }

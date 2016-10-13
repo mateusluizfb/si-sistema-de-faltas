@@ -38,11 +38,8 @@
                                 <td>#{m.nome}</td>
                                 <td>#{m.tipoPerfil.tipoPerfil}</td>
                                 <td>
-                                    <div class="btn-group" style="margin-left: 25%;">
-                                        <h:link styleClass="btn btn-info">
-                                            <span class="glyphicon glyphicon-info-sign"></span>
-                                        </h:link>
-                                        <h:commandLink styleClass="btn btn-danger">
+                                    <div style="margin-left: 25%;">
+                                        <h:commandLink styleClass="btn btn-danger" action="#{listarMembrosPage.delete(m.id)}">
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </h:commandLink>
                                     </div>
