@@ -49,7 +49,7 @@ public class Turma {
         this.membros = membros;
     }
 
-    @JoinColumn(name = "REPONSAVEL_ID")
+    @JoinColumn(name = "RESPONSAVEL_ID")
     @ManyToOne
     public Membro getResponsavel() {
         return responsavel;

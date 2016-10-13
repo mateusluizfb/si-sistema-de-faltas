@@ -63,4 +63,20 @@ public class CustomMembroRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteReso(Long membroID){
+        try (Connection connection = DatabaseJDBC.getConnection()) {
+
+            try(PreparedStatement ps = connection.prepareStatement("" +
+                    "UPDATE Turma t SET t.responsavel_id = NULL WHERE t.responsavel_id = ?")){
+
+                ps.setLong(1, membroID);
+
+                ps.execute();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
