@@ -24,6 +24,13 @@ public class ListarTurmaPage {
     }
 
     public void delete(Long id){
-        tr.delete(id);
+        Turma turma = tr.findOne(id);
+
+        turma.getMembros().clear();
+
+        tr.save(turma);
+
+        tr.removePresencas(id);
+        tr.deleteTurma(id);
     }
 }

@@ -39,7 +39,7 @@ public class Turma {
         this.nome = nome;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "TURMA_HAS_MEMBROS", joinColumns = {@JoinColumn(name = "TURMA_ID")}, inverseJoinColumns = {@JoinColumn(name = "MEMBRO_ID")})
     public List<Membro> getMembros() {
         return membros;
@@ -59,7 +59,7 @@ public class Turma {
         this.responsavel = responsavel;
     }
 
-    @OneToMany(mappedBy = "turma")
+    @OneToMany(mappedBy = "turma", fetch = FetchType.EAGER)
     public List<Presenca> getPresencas() {
         return presencas;
     }
