@@ -39,8 +39,9 @@
                                 <td>#{t.responsavel.nome}</td>
                                 <td>
                                     <div class="btn-group" style="margin-left: 25%;">
-                                        <h:link styleClass="btn btn-info">
+                                        <h:link styleClass="btn btn-info" outcome="detalhar_turma">
                                             <span class="glyphicon glyphicon-info-sign"></span>
+                                            <f:param value="#{t.id}" name="id"/>
                                         </h:link>
                                         <h:commandLink styleClass="btn btn-danger"
                                                        action="#{listarTurmaPage.delete(t.id)}">

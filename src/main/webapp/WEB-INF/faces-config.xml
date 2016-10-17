@@ -40,6 +40,13 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>detalhar_turma</from-outcome>
+            <to-view-id>/app/views/turmas/detalhar_turma.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+
     </navigation-rule>
 
 </faces-config>
