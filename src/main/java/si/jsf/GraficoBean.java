@@ -45,7 +45,7 @@ public class GraficoBean {
         animatedChart.setLegendPosition("se");
         Axis yAxis = animatedChart.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(4);
+        yAxis.setMax(tr.findByTurma(id).size() + 1);
     }
 
     private LineChartModel initiChart(Long id){

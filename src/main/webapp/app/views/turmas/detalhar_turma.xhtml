@@ -25,33 +25,35 @@
                 <div class="col-xs-4">
                     <div class="form-group">
                         <label>Nome:</label>
-                        <h:outputText style="margin-left: 10px" value="#{detalharTurmaPage.turma.nome}" />
+                        <h:outputText style="margin-left: 10px" value="#{detalharTurmaPage.turma.nome}"/>
                     </div>
                     <div class="form-group">
                         <label>Alunos</label>
                         <table class="table table-striped">
                             <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Faltas</th>
-                                </tr>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Faltas</th>
+                                <th></th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <ui:repeat value="#{detalharTurmaPage.membros}" var="m" >
-                                    <tr>
-                                        <td>#{m.nome}</td>
-                                        <td>#{detalharTurmaPage.getNoPresencas(m.id)}</td> <!-- Arrumar issoooo -->
-                                    </tr>
-                                </ui:repeat>
+                            <ui:repeat value="#{detalharTurmaPage.membros}" var="m">
+                                <tr>
+                                    <td>#{m.nome}</td>
+                                    <td>#{detalharTurmaPage.getNoPresencas(m.id)}</td> <!-- Arrumar issoooo -->
+                                    <td><h:link styleClass="glyphicon glyphicon-edit"/></td>
+                                </tr>
+                            </ui:repeat>
                             </tbody>
                         </table>
 
                     </div>
                 </div>
                 <div class="col-xs-8">
-                <p:panel>
-                    <p:chart type="line" model="#{graficoBean.animatedChart}" style="width:100%;" />
-                </p:panel>
+                    <p:panel>
+                        <p:chart type="line" model="#{graficoBean.animatedChart}" style="width:100%;"/>
+                    </p:panel>
 
                     <h:messages/>
                 </div>
