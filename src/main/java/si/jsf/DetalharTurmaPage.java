@@ -38,4 +38,8 @@ public class DetalharTurmaPage {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
+
+    public Long getNoPresencas(Long membroId){
+        return tr.findNoPresencas(turma.getId(), membroId);
+    }
 }

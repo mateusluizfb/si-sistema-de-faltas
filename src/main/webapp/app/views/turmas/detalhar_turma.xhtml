@@ -39,7 +39,7 @@
                                 <ui:repeat value="#{detalharTurmaPage.membros}" var="m" >
                                     <tr>
                                         <td>#{m.nome}</td>
-                                        <td>#{m.presencas.size()}</td> <!-- Arrumar issoooo -->
+                                        <td>#{detalharTurmaPage.getNoPresencas(m.id)}</td> <!-- Arrumar issoooo -->
                                     </tr>
                                 </ui:repeat>
                             </tbody>

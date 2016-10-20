@@ -36,4 +36,16 @@ public interface TurmaRepository extends JpaRepository<Turma, Long> {
             "WHERE t.id = ?1")
     List<Membro> findByTurma(Long id);
 
+    @Query(nativeQuery = true, value = "" +
+            "SELECT \n" +
+            "count(p.id)\n" +
+            "FROM Membro m\n" +
+            "INNER JOIN PRESENCA p\n" +
+            "on p.membro_id = m.id\n" +
+            "INNER JOIN (SELECT * FROM Turma t WHERE t.id = ?1) t\n" +
+            "on t.id = p.turma_id\n" +
+            "WHERE m.id = ?2\n" +
+            "group by (m.id, t.id)")
+    Long findNoPresencas(Long turmaId, Long membroId);
+
 }
