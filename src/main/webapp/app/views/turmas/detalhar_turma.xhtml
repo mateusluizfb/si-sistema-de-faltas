@@ -6,10 +6,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-<head>
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
     <title>Detalhar turma</title>
-</head>
+</h:head>
 <body>
 
 <ui:composition template="../template/header.xhtml">
@@ -47,11 +48,13 @@
 
                     </div>
                 </div>
+                <div class="col-xs-8">
+                <p:panel>
+                    <p:chart type="line" model="#{graficoBean.animatedChart}" style="width:100%;" />
+                </p:panel>
 
-
-            </div>
-            <div class="col-xs-8">
-
+                    <h:messages/>
+                </div>
             </div>
         </div>
     </div>
