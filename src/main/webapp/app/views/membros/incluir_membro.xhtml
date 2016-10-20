@@ -12,6 +12,8 @@
 </head>
 <body>
 <ui:composition template="../template/header.xhtml">
+    <link rel="stylesheet" href="../../stylesheet/css/incluir_membro.css" />
+
 
     <div class="container">
 
@@ -20,22 +22,22 @@
                 <h4>Incluir membro</h4>
             </div>
             <div class="panel-body">
-                <h:form>
+                <h:form id="form-principal">
                     <div class="form-group">
                         <label>Nome</label>
-                        <h:inputText styleClass="form-control" value="#{incluirMembroPage.membro.nome}"/>
+                        <h:inputText styleClass="form-control input-default" value="#{incluirMembroPage.membro.nome}"/>
                     </div>
                     <div class="form-group">
                         <label>Perfil</label>
                         <div>
-                            <h:selectOneMenu styleClass="form-control" value="#{incluirMembroPage.membro.tipoPerfil}">
+                            <h:selectOneMenu styleClass="form-control input-default" value="#{incluirMembroPage.membro.tipoPerfil}">
                                 <f:selectItem itemValue="Selecione aqui"/>
                                 <f:selectItems value="#{incluirMembroPage.perfis}" itemLabel="#{p.tipoPerfil}" var="p"/>
                             </h:selectOneMenu>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div>
+                        <div style="margin-left: 25%;">
                             <h:commandLink styleClass="btn btn-success" action="#{incluirMembroPage.save}">
                                 <span class="glyphicon glyphicon-ok"/>
                             </h:commandLink>

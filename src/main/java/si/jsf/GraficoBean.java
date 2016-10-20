@@ -45,19 +45,38 @@ public class GraficoBean {
         animatedChart.setLegendPosition("se");
         Axis yAxis = animatedChart.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(3);
+        yAxis.setMax(4);
     }
 
     private LineChartModel initiChart(Long id){
         LineChartModel chart = new LineChartModel();
         LineChartSeries member;
 
-        member = new LineChartSeries();
-        member.setLabel("oi");
-        member.set(1,2);
-        member.set(2,1);
+        int i;
 
-        chart.addSeries(member);
+        List<Membro> membros = tr.findByTurma(id);
+        List<Presenca> presencas;
+        for (Membro m: membros) {
+            member = new LineChartSeries();
+            presencas = m.getPresencas();
+            i = 1;
+            member.setLabel(m.getNome());
+            for (Presenca p : presencas) {
+                if(p.getTipoPresenca().equals(TipoPresenca.PR)){
+                    member.set(i++, 1);
+                }
+
+                if(p.getTipoPresenca().equals(TipoPresenca.FL)){
+                    member.set(i++, 2);
+                }
+
+                if(p.getTipoPresenca().equals(TipoPresenca.AT)){
+                    member.set(i++, 3);
+                }
+
+            }
+            chart.addSeries(member);
+        }
 
         return chart;
     }
