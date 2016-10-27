@@ -1,4 +1,4 @@
-package si.jsf;
+package si.jsf.membro;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -45,6 +45,12 @@
             <to-view-id>/app/views/turmas/detalhar_turma.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>registrar_presenca</from-outcome>
+            <to-view-id>/app/views/turmas/registrar_presenca.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
 
 
     </navigation-rule>

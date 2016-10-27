@@ -41,14 +41,16 @@
                             <ui:repeat value="#{detalharTurmaPage.membros}" var="m">
                                 <tr>
                                     <td>#{m.nome}</td>
-                                    <td>#{detalharTurmaPage.getNoPresencas(m.id)}</td> <!-- Arrumar issoooo -->
-                                    <td><h:link styleClass="glyphicon glyphicon-edit"/></td>
+                                    <td>#{detalharTurmaPage.getNoPresencas(m.id)}</td>
                                 </tr>
                             </ui:repeat>
                             </tbody>
                         </table>
 
                     </div>
+                    <h:link outcome="/app/views/turmas/registrar_presenca.jsf?id=#{detalharTurmaPage.turma.id}" styleClass="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-edit"/>
+                    </h:link>
                 </div>
                 <div class="col-xs-8">
                     <p:panel>
@@ -60,7 +62,6 @@
             </div>
         </div>
     </div>
-
 </ui:composition>
 
 </body>

@@ -1,10 +1,11 @@
-package si.jsf;
+package si.jsf.turma;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 import si.entities.Membro;
 import si.entities.Turma;
+import si.repositories.MembroRepository;
 import si.repositories.TurmaRepository;
 import si.util.FacesUtil;
 
@@ -21,14 +22,17 @@ public class DetalharTurmaPage {
     @Autowired
     private TurmaRepository tr;
 
+    @Autowired
+    private MembroRepository mr;
+
     private Turma turma;
 
-    public List<Membro> getMembros(){
-        return tr.findByTurma(getTurma().getId());
+    public List<Membro> getMembros() {
+        return mr.findByTurma(getTurma().getId());
     }
 
     public Turma getTurma() {
-        if(turma == null){
+        if (turma == null) {
             turma = tr.findOne(Long.valueOf(FacesUtil.getParameter("id")));
         }
 
@@ -39,7 +43,7 @@ public class DetalharTurmaPage {
         this.turma = turma;
     }
 
-    public Long getNoPresencas(Long membroId){
-        return tr.findNoPresencas(turma.getId(), membroId);
+    public Long getNoPresencas(Long membroId) {
+        return mr.findNoPresencas(turma.getId(), membroId);
     }
 }

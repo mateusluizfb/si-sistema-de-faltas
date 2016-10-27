@@ -1,4 +1,4 @@
-package si.jsf;
+package si.jsf.grafico;
 
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
@@ -45,7 +45,7 @@ public class GraficoBean {
         animatedChart.setLegendPosition("se");
         Axis yAxis = animatedChart.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(tr.findByTurma(id).size() + 1);
+        yAxis.setMax(mr.findByTurma(id).size() + 1);
     }
 
     private LineChartModel initiChart(Long id){
@@ -54,7 +54,7 @@ public class GraficoBean {
 
         int i;
 
-        List<Membro> membros = tr.findByTurma(id);
+        List<Membro> membros = mr.findByTurma(id);
         List<Presenca> presencas;
         for (Membro m: membros) {
             member = new LineChartSeries();
