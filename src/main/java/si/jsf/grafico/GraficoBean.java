@@ -16,6 +16,8 @@ import si.util.FacesUtil;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by mateus on 20/10/16.
@@ -58,7 +60,10 @@ public class GraficoBean {
         List<Presenca> presencas;
         for (Membro m: membros) {
             member = new LineChartSeries();
-            presencas = m.getPresencas();
+            presencas = m.getPresencas().
+                    stream().
+                    filter(membro -> membro.getTurma().getId().equals(id)).
+                    collect(Collectors.toList());
             i = 1;
             member.setLabel(m.getNome());
             for (Presenca p : presencas) {

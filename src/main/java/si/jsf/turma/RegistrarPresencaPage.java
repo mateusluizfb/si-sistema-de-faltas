@@ -8,6 +8,7 @@ import si.repositories.MembroRepository;
 import si.repositories.TurmaRepository;
 import si.util.FacesUtil;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,9 +26,22 @@ public class RegistrarPresencaPage {
     private TurmaRepository tr;
 
     private Long[] membros;
+    private Date dataRegistro;
 
     public List<Membro> findAlunos(Long id){
         return mr.findByTurma(id);
+    }
+
+    public List<Membro> getAlunos(){
+        return mr.findByTurma(Long.valueOf(FacesUtil.getParameter("id")));
+    }
+
+    public Date getDataRegistro() {
+        return dataRegistro;
+    }
+
+    public void setDataRegistro(Date dataRegistro) {
+        this.dataRegistro = dataRegistro;
     }
 
     public Long[] getMembros() {
@@ -36,9 +50,5 @@ public class RegistrarPresencaPage {
 
     public void setMembros(Long[] membros) {
         this.membros = membros;
-    }
-
-    public List<Membro> getAlunos(){
-        return mr.findByTurma(Long.valueOf(FacesUtil.getParameter("id")));
     }
 }

@@ -41,7 +41,10 @@
                             <ui:repeat value="#{detalharTurmaPage.membros}" var="m">
                                 <tr>
                                     <td>#{m.nome}</td>
-                                    <td>#{detalharTurmaPage.getNoPresencas(m.id)}</td>
+                                    <td>
+                                        <h:outputText value="#{detalharTurmaPage.getNoPresencas(m.id)}" />
+                                        <h:outputText rendered="#{empty detalharTurmaPage.getNoPresencas(m.id)}" value="Não tem faltas"/>
+                                    </td>
                                 </tr>
                             </ui:repeat>
                             </tbody>
