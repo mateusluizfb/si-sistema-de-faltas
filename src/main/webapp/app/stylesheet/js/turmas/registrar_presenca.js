@@ -14,7 +14,7 @@ function todos(cb){
 
 (function () {
 
-    document.querySelector("#input-data").onkeyup = function () {
+    document.querySelector(".input-data").onkeyup = function () {
         var mask = this.value;
         if (mask.match(/^\d{2}$/) !== null) {
             this.value = mask + '/';

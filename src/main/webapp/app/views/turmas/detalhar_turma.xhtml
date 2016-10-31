@@ -20,48 +20,58 @@
             <div class="panel-heading">
                 <h4>Turma</h4>
             </div>
-
             <div class="panel-body">
-                <div class="col-xs-4">
-                    <div class="form-group">
-                        <label>Nome:</label>
-                        <h:outputText style="margin-left: 10px" value="#{detalharTurmaPage.turma.nome}"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Alunos</label>
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Faltas</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <ui:repeat value="#{detalharTurmaPage.membros}" var="m">
+                <h:form>
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label>Nome:</label>
+                            <h:outputText style="margin-left: 10px" value="#{detalharTurmaPage.turma.nome}"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Alunos</label>
+                            <table class="table table-striped">
+                                <thead>
                                 <tr>
-                                    <td>#{m.nome}</td>
-                                    <td>
-                                        <h:outputText value="#{detalharTurmaPage.getNoPresencas(m.id)}" />
-                                        <h:outputText rendered="#{empty detalharTurmaPage.getNoPresencas(m.id)}" value="Não tem faltas"/>
-                                    </td>
+                                    <th>Nome</th>
+                                    <th>Faltas</th>
+                                    <th></th>
                                 </tr>
-                            </ui:repeat>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <ui:repeat value="#{detalharTurmaPage.membros}" var="m">
+                                    <tr>
+                                        <td>#{m.nome}</td>
+                                        <td>
+                                            <h:outputText value="#{detalharTurmaPage.getNoPresencas(m.id)}"/>
+                                            <h:outputText rendered="#{empty detalharTurmaPage.getNoPresencas(m.id)}"
+                                                          value="Não tem faltas"/>
+                                        </td>
+                                        <td><h:commandLink styleClass="btn btn-danger btn-sm">
+                                            <span class="glyphicon glyphicon-remove"/>
+                                        </h:commandLink></td>
+                                    </tr>
+                                </ui:repeat>
+                                </tbody>
+                            </table>
 
+                        </div>
+                        <h:link styleClass="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-plus"/>
+                        </h:link>
+                        &#160;
+                        <h:link outcome="registrar_presenca" styleClass="btn btn-primary btn-sm">
+                            <f:param name="id" value="#{detalharTurmaPage.turma.id}"/>
+                            <span class="glyphicon glyphicon-edit"/>
+                        </h:link>
                     </div>
-                    <h:link outcome="/app/views/turmas/registrar_presenca.jsf?id=#{detalharTurmaPage.turma.id}" styleClass="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-edit"/>
-                    </h:link>
-                </div>
-                <div class="col-xs-8">
-                    <p:panel>
-                        <p:chart type="line" model="#{graficoBean.animatedChart}" style="width:100%;"/>
-                    </p:panel>
+                    <div class="col-xs-8">
+                        <p:panel>
+                            <p:chart type="line" model="#{graficoBean.animatedChart}" style="width:100%;"/>
+                        </p:panel>
 
-                    <h:messages/>
-                </div>
+                        <h:messages/>
+                    </div>
+                </h:form>
             </div>
         </div>
     </div>

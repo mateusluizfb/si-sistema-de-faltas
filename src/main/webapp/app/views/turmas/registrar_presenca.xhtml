@@ -13,6 +13,7 @@
 <body>
 
 <ui:composition template="../../views/template/header.xhtml">
+    <link rel="stylesheet" href="../../stylesheet/css/registrar_presenca.css"/>
 
     <div class="container">
         <div class="panel panel-primary">
@@ -20,24 +21,34 @@
                 <h4 style="font-weight: bold">Registrar Presença</h4>
             </div>
             <div class="panel-body">
-                <div class="form-group">
-                    <label>Alunos</label>
-                </div>
-                <div class="form-group">
-                    <strong>Dia:</strong>
-                    <h:inputText id="input-data" styleClass="form-control" style="width: 25%;">
-                        <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GTM-0300"/>
-                    </h:inputText>
-                </div>
-                <div class="form-group">
-                    <input onchange="todos(this)" type="checkbox" checked="checked"/><strong>Todos</strong>
-                </div>
-                <div class="form-group">
-                    <h:selectManyCheckbox value="#{registrarPresencaPage.membros}" layout="pageDirection">
-                        <f:selectItems value="#{registrarPresencaPage.alunos}" itemLabel="#{a.nome}" var="a"
-                                       itemValue="#{a.id}"/>
-                    </h:selectManyCheckbox>
-                </div>
+                <h:form id="form-principal">
+
+                    <div class="form-group">
+                        <strong>Dia:</strong>
+                        <h:inputText styleClass="input-data form-control">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GTM-0300"/>
+                        </h:inputText>
+                    </div>
+                    <div class="form-group">
+                        <input onchange="todos(this)" type="checkbox" checked="checked"/><strong>Todos</strong>
+                    </div>
+                    <div class="form-group">
+                        <h:selectManyCheckbox value="#{registrarPresencaPage.membros}" layout="pageDirection">
+                            <f:selectItems value="#{registrarPresencaPage.alunos}" itemLabel="#{a.nome}" var="a"
+                                           itemValue="#{a.id}"/>
+                        </h:selectManyCheckbox>
+                    </div>
+                    <div id="botoes">
+                        <h:commandLink styleClass="btn btn-success">
+                            <span class="glyphicon glyphicon-ok"/>
+                        </h:commandLink>
+                        &#160;
+                        <h:link styleClass="btn btn-warning" outcome="detalhar_turma">
+                            <f:param name="id" value="#{registrarPresencaPage.turmaId}"/>
+                            <span class="glyphicon glyphicon-remove-sign"/>
+                        </h:link>
+                    </div>
+                </h:form>
             </div>
         </div>
 

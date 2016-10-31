@@ -32,8 +32,12 @@ public class RegistrarPresencaPage {
         return mr.findByTurma(id);
     }
 
+    public String getTurmaId(){
+        return FacesUtil.getParameter("id");
+    }
+
     public List<Membro> getAlunos(){
-        return mr.findByTurma(Long.valueOf(FacesUtil.getParameter("id")));
+        return mr.findByTurma(Long.valueOf(getTurmaId()));
     }
 
     public Date getDataRegistro() {
