@@ -46,7 +46,11 @@
                                             <h:outputText rendered="#{empty detalharTurmaPage.getNoPresencas(m.id)}"
                                                           value="Não tem faltas"/>
                                         </td>
-                                        <td><h:commandLink styleClass="btn btn-danger btn-sm">
+                                        <td><h:commandLink
+                                                onclick="return confirm('Confirma a exclusão?')"
+                                                action="#{detalharTurmaPage.delete(m.id)}"
+                                                styleClass="btn btn-danger btn-sm">
+                                            <f:param name="id" value="#{detalharTurmaPage.turma.id}"/>
                                             <span class="glyphicon glyphicon-remove"/>
                                         </h:commandLink></td>
                                     </tr>
@@ -55,15 +59,21 @@
                             </table>
 
                         </div>
-                        <h:link styleClass="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-plus"/>
-                        </h:link>
-                        &#160;
-                        <h:link outcome="registrar_presenca" styleClass="btn btn-primary btn-sm">
-                            <f:param name="id" value="#{detalharTurmaPage.turma.id}"/>
-                            <span class="glyphicon glyphicon-edit"/>
-                        </h:link>
+                        <div class="form-group">
+                            <h:link styleClass="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-plus"/>
+                            </h:link>
+                            &#160;
+                            <h:link outcome="registrar_presenca" styleClass="btn btn-primary btn-sm">
+                                <f:param name="id" value="#{detalharTurmaPage.turma.id}"/>
+                                <span class="glyphicon glyphicon-edit"/>
+                            </h:link>
+                        </div>
+                        <div class="form-group">
+                            <h:link value="Voltar" styleClass="btn btn-warning" outcome="listagem_turmas"/>
+                        </div>
                     </div>
+
                     <div class="col-xs-8">
                         <p:panel>
                             <p:chart type="line" model="#{graficoBean.animatedChart}" style="width:100%;"/>
@@ -72,6 +82,7 @@
                         <h:messages/>
                     </div>
                 </h:form>
+
             </div>
         </div>
     </div>

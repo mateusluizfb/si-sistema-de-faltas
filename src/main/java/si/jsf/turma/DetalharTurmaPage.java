@@ -10,6 +10,7 @@ import si.repositories.TurmaRepository;
 import si.util.FacesUtil;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by mateus on 17/10/16.
@@ -26,6 +27,17 @@ public class DetalharTurmaPage {
     private MembroRepository mr;
 
     private Turma turma;
+
+    public void delete(Long id){
+
+        turma.setMembros(
+                turma.getMembros().stream()
+                    .filter(m -> !m.getId().equals(id)).distinct()
+                    .collect(Collectors.toList()) //ARRUMAR
+        );
+
+        tr.save(turma);
+    }
 
     public List<Membro> getMembros() {
         return mr.findByTurma(getTurma().getId());

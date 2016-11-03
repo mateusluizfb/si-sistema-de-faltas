@@ -39,7 +39,9 @@
                                 <td>#{m.tipoPerfil.tipoPerfil}</td>
                                 <td>
                                     <div style="margin-left: 25%;">
-                                        <h:commandLink styleClass="btn btn-danger" action="#{listarMembrosPage.delete(m.id)}">
+                                        <h:commandLink onclick="return confirm('Confirma a exclusão?')"
+                                                       styleClass="btn btn-danger"
+                                                       action="#{listarMembrosPage.delete(m.id)}">
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </h:commandLink>
                                     </div>

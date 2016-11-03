@@ -43,7 +43,8 @@
                                             <span class="glyphicon glyphicon-info-sign"></span>
                                             <f:param value="#{t.id}" name="id"/>
                                         </h:link>
-                                        <h:commandLink styleClass="btn btn-danger"
+                                        <h:commandLink onclick="return confirm('Confirma a exclusão?')"
+                                                       styleClass="btn btn-danger"
                                                        action="#{listarTurmaPage.delete(t.id)}">
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </h:commandLink>
