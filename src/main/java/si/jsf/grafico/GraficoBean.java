@@ -14,9 +14,7 @@ import si.repositories.MembroRepository;
 import si.repositories.TurmaRepository;
 import si.util.FacesUtil;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -47,7 +45,7 @@ public class GraficoBean {
         animatedChart.setLegendPosition("se");
         Axis yAxis = animatedChart.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(mr.findByTurma(id).size() + 1);
+        yAxis.setMax(mr.findByTurmasId(id).size() + 1);
     }
 
     private LineChartModel initiChart(Long id){
@@ -56,7 +54,7 @@ public class GraficoBean {
 
         int i;
 
-        List<Membro> membros = mr.findByTurma(id);
+        List<Membro> membros = mr.findByTurmasId(id);
         List<Presenca> presencas;
         for (Membro m: membros) {
             member = new LineChartSeries();

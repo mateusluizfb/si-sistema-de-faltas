@@ -40,7 +40,7 @@ public class DetalharTurmaPage {
     }
 
     public List<Membro> getMembros() {
-        return mr.findByTurma(getTurma().getId());
+        return mr.findByTurmasId(getTurma().getId());
     }
 
     public Turma getTurma() {

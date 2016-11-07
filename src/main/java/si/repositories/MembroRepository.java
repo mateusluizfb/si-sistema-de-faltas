@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import si.entities.Membro;
+import si.entities.Turma;
 import si.enums.TipoPerfil;
 
 import java.util.List;
@@ -17,12 +18,7 @@ public interface MembroRepository extends JpaRepository<Membro, Long>{
 
     List<Membro> findAllByTipoPerfilIn(TipoPerfil... tipoPerfil);
 
-    @Query(nativeQuery = false, value = "" +
-            "SELECT m " +
-            "FROM Membro m " +
-            "JOIN m.turmas t " +
-            "WHERE t.id = ?1")
-    List<Membro> findByTurma(Long id);
+    List<Membro> findByTurmasId(Long id);
 
     @Query(nativeQuery = true, value = "" +
             "SELECT \n" +
@@ -35,4 +31,13 @@ public interface MembroRepository extends JpaRepository<Membro, Long>{
             "WHERE m.id = ?2\n" +
             "group by (m.id, t.id)")
     Long findNoPresencas(Long turmaId, Long membroId);
+
+//    @Query(nativeQuery = false, value = "" +
+//            "SELECT m " +
+//            "FROM Membro m " +              <---- Codigo antigo
+//            "JOIN m.turmas t " +
+//            "WHERE t.id = ?1")
+//    List<Membro> findByTurmaId(Long id);
+
+
 }

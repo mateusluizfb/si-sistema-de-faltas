@@ -52,6 +52,11 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>incluir_aluno</from-outcome>
+            <to-view-id>/app/views/turmas/incluir_aluno.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
 
     </navigation-rule>
 

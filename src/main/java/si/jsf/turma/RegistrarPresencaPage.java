@@ -29,7 +29,7 @@ public class RegistrarPresencaPage {
     private Date dataRegistro;
 
     public List<Membro> findAlunos(Long id){
-        return mr.findByTurma(id);
+        return mr.findByTurmasId(id);
     }
 
     public String getTurmaId(){
@@ -37,7 +37,7 @@ public class RegistrarPresencaPage {
     }
 
     public List<Membro> getAlunos(){
-        return mr.findByTurma(Long.valueOf(getTurmaId()));
+        return mr.findByTurmasId(Long.valueOf(getTurmaId()));
     }
 
     public Date getDataRegistro() {

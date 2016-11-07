@@ -60,8 +60,9 @@
 
                         </div>
                         <div class="form-group">
-                            <h:link styleClass="btn btn-primary btn-sm">
+                            <h:link styleClass="btn btn-primary btn-sm" outcome="incluir_aluno">
                                 <span class="glyphicon glyphicon-plus"/>
+                                <f:param name="id" value="#{detalharTurmaPage.turma.id}" />
                             </h:link>
                             &#160;
                             <h:link outcome="registrar_presenca" styleClass="btn btn-primary btn-sm">
